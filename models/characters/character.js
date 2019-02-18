@@ -1,6 +1,8 @@
 class Character {
-  constructor(name) {
-    this.name = name
+  constructor(name, race, cClass) {
+    this.name = name,
+    this.race = race,
+    this.cClass = cClass
   }
 
 }
