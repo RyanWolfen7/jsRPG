@@ -5,10 +5,10 @@ const DEFAULT_STATS = {
 
 class Character {
   constructor(name, race, cClass, stats = DEFAULT_STATS) {
-    this.name = name,
-    this.race = race,
+    this.name   = name,
+    this.race   = race,
     this.cClass = cClass,
-    this.stats = stats
+    this.stats  = stats
   }
 
 }
