@@ -29,11 +29,17 @@ describe(Character, function() {
     })
 
     it('should initialize with a level of 1', function() {
-      expect(character.level).to.eql(1)
+      expect(character.level).to.eql(1);
     })
 
     it('should have a default xp current and max', function() {
-      expect(character.xp).to.eql(xp)
+      expect(character.xp).to.eql(xp);
+    })
+
+    it('should have default magic, health, and stamina', function() {
+      expect(character.health.max).to.eql(36);
+      expect(character.magic.max).to.eql(24);
+      expect(character.stamina.max).to.eql(36);
     })
   })
 })
