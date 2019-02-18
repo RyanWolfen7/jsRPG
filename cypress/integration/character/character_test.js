@@ -26,5 +26,9 @@ describe(Character, function() {
       let nCharacter = new Character("Name", "Race", "Class", stats);
       expect(nCharacter.stats).to.eql(stats);
     })
+
+    it('should initialize with a level of 1', function() {
+      expect(character.level).to.eql(1)
+    })
   })
 })
