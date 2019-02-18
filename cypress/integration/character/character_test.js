@@ -10,6 +10,7 @@ describe(Character, function() {
     str: 18, dex: 18, const: 16,
     char: 12, wis: 10, int: 10
   }
+  let xp = { max: 100, current: 0}
 
   describe("Constructor", function() {
     it("Has Name, Race, and Class", function() {
@@ -29,6 +30,10 @@ describe(Character, function() {
 
     it('should initialize with a level of 1', function() {
       expect(character.level).to.eql(1)
+    })
+
+    it('should have a default xp current and max', function() {
+      expect(character.xp).to.eql(xp)
     })
   })
 })
