@@ -6,6 +6,10 @@ describe(Character, function() {
     str: 12, dex: 12, const: 12,
     char: 12, wis: 12, int: 12
   }
+  let stats = {
+    str: 18, dex: 18, const: 16,
+    char: 12, wis: 10, int: 10
+  }
 
   describe("Constructor", function() {
     it("Has Name, Race, and Class", function() {
@@ -16,6 +20,11 @@ describe(Character, function() {
 
     it("Should have default stats", function() {
       expect(character.stats).to.eql(defaultStats);
+    })
+
+    it("should accept new stats", function() {
+      let nCharacter = new Character("Name", "Race", "Class", stats);
+      expect(nCharacter.stats).to.eql(stats);
     })
   })
 })
