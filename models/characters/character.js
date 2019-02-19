@@ -13,7 +13,34 @@ class Character {
     this.cClass = cClass,
     this.stats  = stats,
     this.level = DEFAULT_LEVEL,
-    this.xp = DEFAULT_XP
+    this.xp = DEFAULT_XP,
+    this.health = this.addHP(),
+    this.magic = this.addMagic(),
+    this.stamina = this.addStamina()
+  }
+
+  addHP() {
+    var hp = {
+      max    :    this.stats.const * 3,
+      current:    this.stats.const * 3
+    };
+    return hp;
+  }
+
+  addMagic() {
+    var mp = {
+      max    :    this.stats.wis + this.stats.int,
+      current:    this.stats.str+ this.stats.int
+    };
+    return mp;
+  }
+
+  addStamina() {
+    var stm = {
+      max    :    this.stats.dex * 3,
+      current:    this.stats.dex * 3
+    };
+    return stm;
   }
 
 }
