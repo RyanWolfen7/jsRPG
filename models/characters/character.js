@@ -4,7 +4,9 @@ const DEFAULT_STATS = {
 };
 
 const DEFAULT_LEVEL = 1;
-const DEFAULT_XP = {max: 100, current: 0}
+const DEFAULT_XP = {max: 100, current: 0};
+const STAT_MULTIPLIER = 3;
+const STAT_DIVISOR = 3;
 
 class Character {
   constructor(name, race, cClass, stats = DEFAULT_STATS) {
@@ -21,8 +23,8 @@ class Character {
 
   addHP() {
     var hp = {
-      max    :    this.stats.const * 3,
-      current:    this.stats.const * 3
+      max    :    this.stats.const * STAT_MULTIPLIER,
+      current:    this.stats.const * STAT_MULTIPLIER
     };
     return hp;
   }
@@ -37,8 +39,8 @@ class Character {
 
   addStamina() {
     var stm = {
-      max    :    this.stats.dex * 3,
-      current:    this.stats.dex * 3
+      max    :    this.stats.dex * STAT_MULTIPLIER,
+      current:    this.stats.dex * STAT_MULTIPLIER
     };
     return stm;
   }
@@ -50,7 +52,7 @@ class Character {
       this.levelUpHP();
       this.levelUpStamina();
       this.levelUpMagic();
-      this.level += 1;
+      this.level += DEFAULT_LEVEL;
     }
     return
   }
@@ -65,18 +67,18 @@ class Character {
   }
 
   levelUpHP() {
-    this.health.max += this.stats.const/3 + this.level
-    this.health.current += this.stats.const/3 + this.level
+    this.health.max += this.stats.const/STAT_DIVISOR + this.level
+    this.health.current += this.stats.const/STAT_DIVISOR + this.level
   }
 
   levelUpStamina() {
-    this.stamina.max += this.stats.dex/3 + this.level
-    this.stamina.current += this.stats.dex/3 + this.level
+    this.stamina.max += this.stats.dex/STAT_DIVISOR + this.level
+    this.stamina.current += this.stats.dex/STAT_DIVISOR + this.level
   }
 
   levelUpMagic() {
-    this.magic.max += this.stats.int/3 + this.stats.wis/3
-    this.magic.current += this.stats.int/3 + this.stats.wis/3
+    this.magic.max += this.stats.int/STAT_DIVISOR + this.stats.wis/STAT_DIVISOR
+    this.magic.current += this.stats.int/STAT_DIVISOR + this.stats.wis/STAT_DIVISOR
   }
 
 }
