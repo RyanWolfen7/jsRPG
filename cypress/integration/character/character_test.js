@@ -61,6 +61,12 @@ describe(Character, function() {
         expect(character.stamina).to.eql({max: 41, current: 41})
         expect(character.magic).to.eql({max: 32, current: 32})
       })
+
+      it('should have remaindered xp on lvl up', function() {
+        character.gainXP(265);
+        expect(character.level).to.eql(3);
+        expect(character.xp.current).to.eql(15);
+      })
     })
   })
 })
