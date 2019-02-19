@@ -49,7 +49,8 @@ describe(Character, function() {
       })
 
       it('should level up and restet current xp to zero', function() {
-        character.gainXP(100);
+        // character already has 50xp from last test
+        character.gainXP(50);
         expect(character.level).to.eql(2);
         expect(character.xp.current).to.eql(0);
       })
