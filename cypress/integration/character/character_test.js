@@ -41,5 +41,12 @@ describe(Character, function() {
       expect(character.magic.max).to.eql(24);
       expect(character.stamina.max).to.eql(36);
     })
+
+    describe('Leveling up', function() {
+      it('should be able to increase xp', function() {
+        character.gainXp(50);
+        expect(character.xp.current).to.eql(50);
+      })
+    })
   })
 })
