@@ -1,15 +1,15 @@
-import Class from '../../../models/characters/class.js';
+import CharClass from '../../../models/characters/class.js';
 
-describe(cClass, function() {
-  let cClass = new Class();
+describe('CharClass', function() {
+  let charClass = new CharClass();
 
   describe('Constructor', function() {
     it('should have undefined name', function() {
-      expect(cClass.name).to.eql(undefined)
+      expect(charClass.name).to.eql(undefined);
     })
 
     it('should have undefined bonus', function() {
-      expect(cClass.bonus).to.eql(undefined)
+      expect(charClass.bonus).to.eql(undefined);
     })
   })
 })
