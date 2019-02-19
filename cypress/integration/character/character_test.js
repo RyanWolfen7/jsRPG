@@ -44,8 +44,14 @@ describe(Character, function() {
 
     describe('Leveling up', function() {
       it('should be able to increase xp', function() {
-        character.gainXp(50);
+        character.gainXP(50);
         expect(character.xp.current).to.eql(50);
+      })
+
+      it('should level up and restet current xp to zero', function() {
+        character.gainXP(100);
+        expect(character.level).to.eql(2);
+        expect(character.xp.current).to.eql(0);
       })
     })
   })
