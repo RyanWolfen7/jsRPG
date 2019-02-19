@@ -11,14 +11,14 @@ const STAT_DIVISOR = 3;
 
 class Character {
   constructor(name, race, cClass, stats = DEFAULT_STATS) {
-    this.name   = name,
-    this.race   = race,
-    this.cClass = cClass,
-    this.stats  = stats,
-    this.level = DEFAULT_LEVEL,
-    this.xp = DEFAULT_XP,
-    this.health = this.addHP(),
-    this.magic = this.addMagic(),
+    this.name    = name,
+    this.race    = race,
+    this.cClass  = cClass,
+    this.stats   = stats,
+    this.level   = DEFAULT_LEVEL,
+    this.xp      = DEFAULT_XP,
+    this.health  = this.addHP(),
+    this.magic   = this.addMagic(),
     this.stamina = this.addStamina()
   }
 
@@ -63,23 +63,23 @@ class Character {
   // Refactored Functions
 
   levelUpXP() {
-    this.xp.current -= this.xp.max;
-    this.xp.max += this.xp.max + DEFAULT_XP_INCREMENT;
+    this.xp.current      -= this.xp.max;
+    this.xp.max          += this.xp.max + DEFAULT_XP_INCREMENT;
   }
 
   levelUpHP() {
-    this.health.max += this.stats.const/STAT_DIVISOR + this.level
-    this.health.current += this.stats.const/STAT_DIVISOR + this.level
+    this.health.max      += this.stats.const/STAT_DIVISOR + this.level
+    this.health.current  += this.stats.const/STAT_DIVISOR + this.level
   }
 
   levelUpStamina() {
-    this.stamina.max += this.stats.dex/STAT_DIVISOR + this.level
+    this.stamina.max     += this.stats.dex/STAT_DIVISOR + this.level
     this.stamina.current += this.stats.dex/STAT_DIVISOR + this.level
   }
 
   levelUpMagic() {
-    this.magic.max += this.stats.int/STAT_DIVISOR + this.stats.wis/STAT_DIVISOR
-    this.magic.current += this.stats.int/STAT_DIVISOR + this.stats.wis/STAT_DIVISOR
+    this.magic.max       += this.stats.int/STAT_DIVISOR + this.stats.wis/STAT_DIVISOR
+    this.magic.current   += this.stats.int/STAT_DIVISOR + this.stats.wis/STAT_DIVISOR
   }
 
 }
