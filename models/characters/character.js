@@ -5,6 +5,7 @@ const DEFAULT_STATS = {
 
 const DEFAULT_LEVEL = 1;
 const DEFAULT_XP = {max: 100, current: 0};
+const DEFAULT_XP_INCREMENT = 50;
 const STAT_MULTIPLIER = 3;
 const STAT_DIVISOR = 3;
 
@@ -63,7 +64,7 @@ class Character {
 
   levelUpXP() {
     this.xp.current -= this.xp.max;
-    this.xp.max += this.xp.max + 50;
+    this.xp.max += this.xp.max + DEFAULT_XP_INCREMENT;
   }
 
   levelUpHP() {
