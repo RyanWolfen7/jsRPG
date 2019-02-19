@@ -43,6 +43,10 @@ class Character {
     return stm;
   }
 
+  gainXP(value) {
+    this.xp.current += value;
+  }
+
 }
 
 export default Character;
