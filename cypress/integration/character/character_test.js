@@ -53,6 +53,13 @@ describe(Character, function() {
         character.gainXP(50);
         expect(character.level).to.eql(2);
         expect(character.xp.current).to.eql(0);
+        expect(character.xp.max).to.eql(250);
+      })
+
+      it('should increase hp, magic, and stamina on lvl up', function() {
+        expect(character.health).to.eql({max: 41, current: 41})
+        expect(character.stamina).to.eql({max: 41, current: 41})
+        expect(character.magic).to.eql({max: 32, current: 32})
       })
     })
   })

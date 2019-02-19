@@ -47,9 +47,16 @@ class Character {
     this.xp.current += value;
     if(this.xp.current >= this.xp.max) {
       this.xp.current -= this.xp.max;
+      this.xp.max += this.xp.max + 50;
+      this.health.max += this.stats.const/3 + this.level
+      this.health.current += this.stats.const/3 + this.level
+      this.stamina.max += this.stats.dex/3 + this.level
+      this.stamina.current += this.stats.dex/3 + this.level
+      this.magic.max += this.stats.int/3 + this.stats.wis/3
+      this.magic.current += this.stats.int/3 + this.stats.wis/3
       this.level += 1;
     }
-    return 
+    return
   }
 
 }
