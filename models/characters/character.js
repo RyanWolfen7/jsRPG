@@ -45,6 +45,11 @@ class Character {
 
   gainXP(value) {
     this.xp.current += value;
+    if(this.xp.current >= this.xp.max) {
+      this.xp.current -= this.xp.max;
+      this.level += 1;
+    }
+    return 
   }
 
 }
