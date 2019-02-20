@@ -2,7 +2,10 @@ import Fighter from '../../../../models/characters/classes/fighter.js';
 
 describe('Fighter Class', function() {
   let fighter = new Fighter();
-  let bonus = { str: 1, dex: 1, const:1 };
+  let bonus = {
+    str: 1, dex: 1, const:1,
+    char: 0, wis: 0, int: 0
+   };
 
   describe('constructor', function() {
     it('should have the name fighter', function() {
