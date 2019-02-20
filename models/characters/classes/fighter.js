@@ -1,8 +1,7 @@
 class Fighter {
-  constructor(skills) {
+  constructor() {
     this.name = "Fighter",
-    this.bonus = { str: 1, dex: 1, const:1 },
-    this.skills = skills
+    this.bonus = { str: 1, dex: 1, const:1 }
   }
 }
 
