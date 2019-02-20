@@ -1,3 +1,5 @@
+import CharClass from './class.js'
+
 const DEFAULT_STATS = {
   str: 12, dex: 12, const: 12,
   char: 12, wis: 12, int: 12
@@ -14,7 +16,7 @@ class Character {
     this.name    = name,
     this.race    = race,
     this.cClass  = cClass,
-    this.stats   = stats,
+    this.stats   = this.addBonus(stats),
     this.level   = DEFAULT_LEVEL,
     this.xp      = DEFAULT_XP,
     this.health  = this.addHP(),
@@ -61,6 +63,18 @@ class Character {
 
 
   // Refactored Functions
+
+  addBonus(stats) {
+    if (this.cClass instanceof CharClass) {
+      stats.str   += this.cClass.bonus.str 
+      stats.dex   += this.cClass.bonus.dex
+      stats.const += this.cClass.bonus.const
+      stats.char  += this.cClass.bonus.char
+      stats.wis   += this.cClass.bonus.wis
+      stats.int   += this.cClass.bonus.int
+    }
+    return stats
+  }
 
   levelUpXP() {
     this.xp.current      -= this.xp.max;
