@@ -12,6 +12,12 @@ class Fighter extends CharClass {
     this.name = "Fighter",
     this.bonus = BONUS
   }
+
+// #### SKILLS #####
+// #################
+  simpleFirstAid(target) {
+    return target += Math.floor(Math.random() * 5) + 3
+  }
 }
 
 export default Fighter;
