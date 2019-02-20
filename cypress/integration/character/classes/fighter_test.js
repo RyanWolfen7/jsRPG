@@ -3,7 +3,7 @@ import Fighter from '../../../../models/characters/classes/fighter.js';
 describe('Fighter Class', function() {
   let fighter = new Fighter();
   let bonus = {
-    str: 1, dex: 1, const:1,
+    str: 1, dex: 1, const: 1,
     char: 0, wis: 0, int: 0
    };
 
@@ -14,6 +14,14 @@ describe('Fighter Class', function() {
 
     it('should have + 1 on str, dex, const', function() {
       expect(fighter.bonus).to.eql(bonus);
+    })
+  })
+
+  describe('Simple First Aid', function() {
+    let target = 0;
+
+    it('should heal within 3-5', function() {
+      expect(fighter.simpleFirstAid(target)).to.be.within(3,5)
     })
   })
 })
