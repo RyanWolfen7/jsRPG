@@ -19,8 +19,15 @@ describe('Fighter Class', function() {
 
   describe('Simple First Aid', function() {
     it('should heal within 3-5', function() {
-      var target = 0;
-      expect(fighter.simpleFirstAid(target)).to.be.within(3,5)
+      var target = {max:100, current:0};
+      fighter.simpleFirstAid(target)
+      expect(target.current).to.be.within(3,5)
+    })
+
+    it('should not excede max health', function() {
+      var target = {max:100, current:99};
+      fighter.simpleFirstAid(target);
+      expect(target.current).to.eql(100)
     })
   })
 })
