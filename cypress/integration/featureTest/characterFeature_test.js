@@ -47,26 +47,28 @@ describe('Character load test', function() {
 
   describe('Races added', function() {
     describe('Human', function() {
-      let human = new Character("Ryan", new Human(), "Fighter");
+      let human = new Human();
+      let character = new Character("Ryan", human, "Fighter");
 
       it('should have an instance of Human in character race', function() {
-        expect(human.race).to.be.instanceOf(Human);
+        expect(character.race).to.be.instanceOf(Human);
+        expect(character.cClass).to.not.be.instanceOf(Fighter);
       })
 
       it('should have a stat bonus in race', function() {
-        expect(human.race.statBonus).to.eql({
+        expect(character.race.statBonus).to.eql({
           str: 0, dex: 0, const: 0,
           char: 2, wis: 0, int: 2
         })
       })
 
       it('should apply the stat bonus to the character', function() {
-        expect(human.stats.str).to.eql(12)
-        expect(human.stats.dex).to.eql(12)
-        expect(human.stats.const).to.eql(12)
-        expect(human.stats.char).to.eql(13)
-        expect(human.stats.wis).to.eql(12)
-        expect(human.stats.int).to.eql(13)
+        expect(character.stats.str).to.eql(12)
+        expect(character.stats.dex).to.eql(12)
+        expect(character.stats.const).to.eql(12)
+        expect(character.stats.char).to.eql(14)
+        expect(character.stats.wis).to.eql(12)
+        expect(character.stats.int).to.eql(14)
       })
     })
   })
