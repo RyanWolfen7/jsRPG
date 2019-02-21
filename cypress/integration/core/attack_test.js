@@ -1,4 +1,4 @@
-import Attack from '../../models/core/attack.js'
+import Attack from '../../../models/core/attack.js'
 
 describe('Attack', function() {
   let attack = new Attack();
