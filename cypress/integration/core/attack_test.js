@@ -7,7 +7,7 @@ describe('Attack', function() {
     it('Should lower current hp between 1 - 5', function() {
       var target = {max:100, current:100};
       attack.damage(target);
-      expect(target.current).to.be.within(95,99);
+      expect(target.current).to.be.within(95,100);
     })
   })
 })
