@@ -7,7 +7,7 @@ describe('Fighter Class', function() {
     char: 0, wis: 0, int: 0
    };
 
-  describe('constructor', function() {
+  describe('Constructor', function() {
     it('should have the name fighter', function() {
       expect(fighter.name).to.eql("Fighter");
     })
