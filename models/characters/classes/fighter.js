@@ -16,7 +16,9 @@ class Fighter extends CharClass {
 // #### SKILLS #####
 // #################
   simpleFirstAid(target) {
-    return target += Math.floor(Math.random() * 5) + 3
+    target.current += Math.floor(Math.random() * 3) + 3;
+    if(target.current > target.max) {target.current = target.max}
+    return target
   }
 }
 
