@@ -3,6 +3,10 @@ import Human from '../../../../models/characters/races/human.js';
 describe('Human', function() {
   let human = new Human();
   let steelEye = new Human("Steel Eye")
+  let statBonus = {
+    str: 0, dex: 0, const: 0,
+    char: 2, wis: 0, int: 2
+  }
 
   describe('Constructor', function() {
     it('should have the name Human', function() {
@@ -15,6 +19,10 @@ describe('Human', function() {
 
     it('should pass a subrace to human on init', function() {
       expect(steelEye.subrace).to.eql("Steel Eye")
+    })
+
+    it('should have the right stat bonus', function() {
+      expect(human.statBonus).to.eql(statBonus)
     })
   })
 })
