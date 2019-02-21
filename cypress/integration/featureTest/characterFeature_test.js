@@ -29,6 +29,18 @@ describe('Character load test', function() {
         expect(character.stats.wis).to.eql(12)
         expect(character.stats.int).to.eql(12)
       })
+
+      it('should be able to heal target between 3-5', function() {
+        var target = { max:100, current:95 };
+        character.cClass.simpleFirstAid(target);
+        expect(target.current).to.be.within(97,100)
+      })
+
+      it('should be able to heal target without exceeding max hp', function() {
+        var target = { max:100, current:99 };
+        character.cClass.simpleFirstAid(target);
+        expect(target.current).to.eql(100);
+      })
     })
   })
 })
