@@ -1,5 +1,6 @@
 import Character from '../../../models/characters/character.js';
 import Fighter from '../../../models/characters/classes/fighter.js';
+import Human from '../../../models/characters/races/human.js';
 
 describe('Character load test', function() {
   describe('Classes added', function() {
@@ -40,6 +41,32 @@ describe('Character load test', function() {
         var target = { max:100, current:99 };
         character.cClass.simpleFirstAid(target);
         expect(target.current).to.eql(100);
+      })
+    })
+  })
+
+  describe('Races added', function() {
+    describe('Human', function() {
+      let human = new Character("Ryan", new Human(), "Fighter");
+
+      it('should have an instance of Human in character race', function() {
+        expect(human.race).to.be.instanceOf(Human);
+      })
+
+      it('should have a stat bonus in race', function() {
+        expect(human.race.statBonus).to.eql({
+          str: 0, dex: 0, const: 0,
+          char: 2, wis: 0, int: 2
+        })
+      })
+
+      it('should apply the stat bonus to the character', function() {
+        expect(human.stats.str).to.eql(12)
+        expect(human.stats.dex).to.eql(12)
+        expect(human.stats.const).to.eql(12)
+        expect(human.stats.char).to.eql(13)
+        expect(human.stats.wis).to.eql(12)
+        expect(human.stats.int).to.eql(13)
       })
     })
   })
