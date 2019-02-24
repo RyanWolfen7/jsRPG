@@ -19,7 +19,7 @@ class Character {
         this.cClass  = cClass,
         this.stats   = this.addBonus(stats),
         this.level   = DEFAULT_LEVEL,
-        this.xp      = DEFAULT_XP,
+        this.xp      = Object.assign({}, DEFAULT_XP),
         this.health  = this.addHP(),
         this.magic   = this.addMagic(),
         this.stamina = this.addStamina()
