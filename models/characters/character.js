@@ -1,4 +1,5 @@
 import CharClass from './class.js'
+import Race from './race.js'
 
 const DEFAULT_STATS = {
   str: 12, dex: 12, const: 12,
@@ -13,15 +14,15 @@ const STAT_DIVISOR = 3;
 
 class Character {
   constructor(name, race, cClass, stats = DEFAULT_STATS) {
-    this.name    = name,
-    this.race    = race,
-    this.cClass  = cClass,
-    this.stats   = this.addBonus(stats),
-    this.level   = DEFAULT_LEVEL,
-    this.xp      = DEFAULT_XP,
-    this.health  = this.addHP(),
-    this.magic   = this.addMagic(),
-    this.stamina = this.addStamina()
+        this.name    = name,
+        this.race    = race,
+        this.cClass  = cClass,
+        this.stats   = this.addBonus(stats),
+        this.level   = DEFAULT_LEVEL,
+        this.xp      = DEFAULT_XP,
+        this.health  = this.addHP(),
+        this.magic   = this.addMagic(),
+        this.stamina = this.addStamina()
   }
 
   addHP() {
@@ -64,14 +65,25 @@ class Character {
 
   // Refactored Functions
 
-  addBonus(stats) {
+  addBonus(input) {
+    var stats = Object.assign({}, input)
+    // Class Bonus
     if (this.cClass instanceof CharClass) {
-      stats.str   += this.cClass.bonus.str 
+      stats.str   += this.cClass.bonus.str
       stats.dex   += this.cClass.bonus.dex
       stats.const += this.cClass.bonus.const
       stats.char  += this.cClass.bonus.char
       stats.wis   += this.cClass.bonus.wis
       stats.int   += this.cClass.bonus.int
+    }
+    // Race Bonus
+    else if (this.race instanceof Race) {
+      stats.str   += this.race.statBonus.str
+      stats.dex   += this.race.statBonus.dex
+      stats.const += this.race.statBonus.const
+      stats.char  += this.race.statBonus.char
+      stats.wis   += this.race.statBonus.wis
+      stats.int   += this.race.statBonus.int
     }
     return stats
   }
