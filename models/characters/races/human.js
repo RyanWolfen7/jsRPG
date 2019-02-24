@@ -16,8 +16,8 @@ class Human extends Race {
 
     this.name = 'Human',
     this.subrace = subrace,
-    this.statBonus = STAT_BONUS,
-    this.coreModifiers = CORE_MODIFIERS
+    this.statBonus = Object.assign({}, STAT_BONUS),
+    this.coreModifiers = Object.assign({}, CORE_MODIFIERS)
   }
 }
 
