@@ -30,6 +30,10 @@ class Character {
       max    :    this.stats.const * STAT_MULTIPLIER,
       current:    this.stats.const * STAT_MULTIPLIER
     };
+    if (this.race.coreModifiers != undefined) {
+      hp.max     += this.race.coreModifiers.health;
+      hp.current += this.race.coreModifiers.health;
+    }
     return hp;
   }
 
@@ -38,6 +42,10 @@ class Character {
       max    :    this.stats.wis + this.stats.int,
       current:    this.stats.str+ this.stats.int
     };
+    if (this.race.coreModifiers != undefined) {
+      mp.max     += this.race.coreModifiers.magic;
+      mp.current += this.race.coreModifiers.magic;
+    }
     return mp;
   }
 
@@ -46,6 +54,10 @@ class Character {
       max    :    this.stats.dex * STAT_MULTIPLIER,
       current:    this.stats.dex * STAT_MULTIPLIER
     };
+    if (this.race.coreModifiers != undefined) {
+      stm.max     += this.race.coreModifiers.stamina;
+      stm.current += this.race.coreModifiers.stamina;
+    }
     return stm;
   }
 
