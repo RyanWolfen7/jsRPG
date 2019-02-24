@@ -80,8 +80,12 @@ describe('Character load test', function() {
 
       it('should not be level two because top object leveled up', function() {
         expect(character.level).to.eql(1);
-        expect(character.xp.max).to.eql(100);
+        expect(character.xp.max).to.eql(80);
         expect(character.xp.current).to.eql(0);
+      })
+
+      it('should apply human core modifiers', function() {
+        expect(character.xp.max).to.eql(80);
       })
     })
   })
