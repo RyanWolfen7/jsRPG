@@ -10,7 +10,7 @@ class Fighter extends CharClass {
     super(props);
 
     this.name = "Fighter",
-    this.bonus = BONUS
+    this.bonus = Object.assign({}, BONUS)
   }
 
 // #### SKILLS #####
