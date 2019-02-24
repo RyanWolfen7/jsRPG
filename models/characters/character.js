@@ -19,7 +19,7 @@ class Character {
         this.cClass  = cClass,
         this.stats   = this.addBonus(stats),
         this.level   = DEFAULT_LEVEL,
-        this.xp      = Object.assign({}, DEFAULT_XP),
+        this.xp      = this.addXP(),
         this.health  = this.addHP(),
         this.magic   = this.addMagic(),
         this.stamina = this.addStamina()
@@ -47,6 +47,14 @@ class Character {
       current:    this.stats.dex * STAT_MULTIPLIER
     };
     return stm;
+  }
+
+  addXP() {
+    var xp = Object.assign({}, DEFAULT_XP)
+    if (this.race.coreModifiers != undefined) {
+      xp.max += this.race.coreModifiers.xp;
+    }
+    return xp;
   }
 
   gainXP(value) {
