@@ -42,6 +42,13 @@ describe('Character load test', function() {
         character.cClass.simpleFirstAid(target);
         expect(target.current).to.eql(100);
       })
+
+      it('should be able to level up', function() {
+        character.gainXP(100);
+        expect(character.level).to.eql(2);
+        expect(character.xp.max).to.eql(250);
+        expect(character.xp.current).to.eql(0);
+      })
     })
   })
 
@@ -69,6 +76,12 @@ describe('Character load test', function() {
         expect(character.stats.char).to.eql(14)
         expect(character.stats.wis).to.eql(12)
         expect(character.stats.int).to.eql(14)
+      })
+
+      it('should not be level two because top object leveled up', function() {
+        expect(character.level).to.eql(1);
+        expect(character.xp.max).to.eql(100);
+        expect(character.xp.current).to.eql(0);
       })
     })
   })
