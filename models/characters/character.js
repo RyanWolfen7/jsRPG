@@ -86,7 +86,7 @@ class Character {
   // Refactored Functions
 
   addBonus(input) {
-    var stats = Object.assign({}, input)
+    var stats = Object.assign({}, input);
     // Class Bonus
     if (this.cClass instanceof CharClass) {
       stats.str   += this.cClass.bonus.str
