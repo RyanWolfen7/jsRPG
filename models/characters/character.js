@@ -37,6 +37,10 @@ class Character {
     return hp;
   }
 
+  addMagSearch() {
+    //logic here
+  }
+
   addMagic() {
     var mp = {
       max    :    this.stats.wis + this.stats.int,
